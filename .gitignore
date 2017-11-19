@@ -5,3 +5,4 @@
 !.vscode/extensions.json
 package-lock.json
 node_modules
+.eslintrc.json
