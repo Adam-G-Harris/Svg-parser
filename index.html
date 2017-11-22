@@ -11,21 +11,20 @@
 </head>
 
 <body>
-	<div id="container">
+	<div id="main">
 
 		<header id="title">
 			<h1>SVG Path Parser</h1>
 		</header>
 
-		<main id='main'>
-			<div id="mainTextContainer">
-				<h2>Choose your SVG file below</h2>
-			</div>
+		<main id='formAndDisplay'>
 
 			<!-- File Selection Form -->
-			<div id="mainInputContainer">
+			<div id="formContainer">
 				<form method="post" enctype="multipart/form-data">
-					<div>
+					<div id='inputContainer'>
+						<label for="copyAll" id='copyAll'>Click to copy paths</label>
+						<input type='button' name="copyAll">
 						<label for="svgUpload">Select SVG file</label>
 						<input type="file" name="svgUpload" id="svgUpload">
 					</div>
@@ -37,13 +36,13 @@
 			</div>
 
 			<!-- Output Display -->
-			<div id="mainDisplayContainer">
-				<ul id='displayList'></ul>
-			</div>
+			<textarea id="displayContainer" readonly></textarea>
 		</main>
 
 		<footer id="footer">
-			<p>Coded By Adam Harris</p>
+			<p>Coded by
+				<a href="https://github.com/Adam-G-Harris" target="_blank">Adam Harris</a>
+			</p>
 			<small>&copy; Copyright 2017</small>
 		</footer>
 	</div>

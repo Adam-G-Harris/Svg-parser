@@ -4,7 +4,8 @@ window.onload = () => {
 	// Triggered on state change
 	document.getElementById('svgUpload').addEventListener('change', readFile);
 
-	let outputDisplay = document.getElementById('displayList');
+	// Where output is displayed
+	let outputDisplay = document.getElementById('displayContainer');
 
 	// Renders selected file into str
 	function readFile() {
@@ -24,7 +25,7 @@ window.onload = () => {
 			return;
 		}
 
-		// Splitting str at quotes, then removing outside quotes
+		// RegEx is a blast  -_-
 		let newParsedArr = str.match(/['"].*?['"]/g).map(item => {
 			return item.replace(/['"]/g, "");
 		});
@@ -52,9 +53,19 @@ window.onload = () => {
 
 	// Displaying paths
 	function displayPaths(paths) {
-		let li = document.createElement('li');
-		let liText = document.createTextNode(`<path d="${paths}" />`);
-		li.appendChild(liText);
-		outputDisplay.appendChild(li);
+		let p = document.createElement('p');
+		let text = document.createTextNode(`<path d="${paths}" />`);
+		p.appendChild(text);
+		outputDisplay.value += p.textContent + '\n';
 	}
-};
+
+	// Copies the outputted paths
+	document.getElementById('copyAll').addEventListener('click', function () { // CHANGE THIS TO USE ARROW FUNCTION
+		alert('trying');
+		let copyText = document.getElementById('displayContainer');
+		copyText.select();
+		document.execCommand('Copy');
+		alert('All the paths are copied to your clipboard, enjoy :)');
+	});
+
+}; // End

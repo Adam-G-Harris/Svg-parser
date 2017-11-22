@@ -11,34 +11,118 @@ body {
   overflow: hidden;
 }
 
-#container {
-  width: 100vw;
+#main {
+  background-color: #e6b89c;
   height: 100vh;
 }
 
-#title {
+#main #title {
   background-color: #9cafb7;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 14vh;
+  min-height: 14%;
   font-size: 2rem;
   box-shadow: inset 0 0 10px 0 #4e636c;
 }
 
-#title h1 {
+#main #title h1 {
   color: #f3f3f3;
-  font-weight: 300;
+  font-weight: 500;
 }
 
-#main {
-  background-color: #e6b89c;
-  height: 76vh;
+#main #formAndDisplay {
+  width: 100%;
+  height: calc(86% - 38px);
 }
 
-#footer {
+#main #formContainer {
+  position: relative;
+  padding: 1.5em;
+  height: calc(672.36 / 70);
+}
+
+#main #formContainer #inputContainer {
+  text-align: center;
+}
+
+#main #formContainer #inputContainer input {
+  display: none;
+}
+
+#main #formContainer #inputContainer label {
+  padding: .5em 1em;
   background-color: #4281a4;
-  height: 10vh;
+  font-weight: 100;
+  color: white;
+  border-radius: 3px;
+  box-shadow: inset 0 0 10px 0 #336480;
+}
+
+#main #formContainer #inputContainer label:hover {
+  box-shadow: inset 0 0 20px 0 #25485b;
+  cursor: pointer;
+}
+
+#main #formContainer #inputContainer label:active {
+  box-shadow: inset 0 0 20px 0 #162b37;
+}
+
+#main #formContainer #inputContainer button {
+  padding: .5em 1em;
+  background-color: #4281a4;
+  font-weight: 100;
+  color: white;
+  border-radius: 3px;
+  box-shadow: inset 0 0 10px 0 #336480;
+}
+
+#main #formContainer #noFilesSelected {
+  display: none;
+}
+
+#main #displayContainer {
+  background-color: #9cafb7;
+  display: block;
+  position: relative;
+  margin: auto;
+  line-height: 20px;
+  width: 96vw;
+  padding: 1em;
+  font-size: 0.8em;
+  height: calc(672.36px - 70px - 2vw);
+  box-shadow: inset 0 0 20px 0 #4e636c;
+  overflow: auto;
+  white-space: pre;
+  resize: none;
+}
+
+#main #footer {
+  background-color: #4281a4;
+  color: white;
+  font-weight: 100;
+  display: flex;
+  justify-content: space-between;
+}
+
+#main #footer p {
+  align-self: center;
+  margin: .5em;
+}
+
+#main #footer small {
+  align-self: center;
+  margin: .5em;
+}
+
+#main #footer a {
+  color: white;
+  cursor: pointer;
+}
+
+#main #footer a:visited {
+  color: white;
 }
  
 
