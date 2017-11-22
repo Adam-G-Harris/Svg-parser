@@ -16,7 +16,5 @@
 		"url": "https://github.com/Adam-G-Harris/SVG-Parser/issues"
 	},
 	"homepage": "https://github.com/Adam-G-Harris/SVG-Parser#readme",
-	"devDependencies": {
-		"webpack": "^3.8.1"
-	}
+	"dependencies": {}
 }
