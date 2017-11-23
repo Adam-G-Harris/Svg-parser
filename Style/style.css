@@ -8,7 +8,6 @@ body {
   font-family: 'Avenir Next', 'Helvetica Neue', 'Helvetica', sans-serif;
   font-size: 100%;
   font-weight: normal;
-  overflow: hidden;
 }
 
 #main {
@@ -39,7 +38,7 @@ body {
 
 #main #formContainer {
   position: relative;
-  padding: 1.5em;
+  padding: 1.3em;
   height: calc(672.36 / 70);
 }
 
@@ -52,7 +51,11 @@ body {
 }
 
 #main #formContainer #inputContainer label {
-  padding: .5em 1em;
+  display: inline-block;
+  width: 148px;
+  height: 38px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   background-color: #4281a4;
   font-weight: 100;
   color: white;
@@ -69,38 +72,50 @@ body {
   box-shadow: inset 0 0 20px 0 #162b37;
 }
 
-#main #formContainer #inputContainer button {
-  padding: .5em 1em;
-  background-color: #4281a4;
-  font-weight: 100;
-  color: white;
-  border-radius: 3px;
-  box-shadow: inset 0 0 10px 0 #336480;
+#main #formContainer #inputContainer #copyAll {
+  display: none;
 }
 
-#main #formContainer #noFilesSelected {
-  display: none;
+#main #noFilesSelected {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 400px;
+  margin: auto;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 #main #displayContainer {
   background-color: #9cafb7;
   display: block;
+  border: none;
   position: relative;
   margin: auto;
   line-height: 20px;
   width: 96vw;
   padding: 1em;
   font-size: 0.8em;
-  height: calc(672.36px - 70px - 2vw);
+  height: calc(100% - 79px - 38px);
   box-shadow: inset 0 0 20px 0 #4e636c;
   overflow: auto;
   white-space: pre;
   resize: none;
 }
 
+#main #displayContainer:focus {
+  outline: none;
+}
+
 #main #footer {
   background-color: #4281a4;
   color: white;
+  height: 38px;
   font-weight: 100;
   display: flex;
   justify-content: space-between;

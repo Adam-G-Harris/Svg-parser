@@ -1,16 +1,19 @@
 // Sorry about excessive comments... its very hard to stay sane when working with this much RegEx
 window.onload = () => {
 
-	// Triggered on state change
+	// Event triggered on state change
 	document.getElementById('svgUpload').addEventListener('change', readFile);
 
-	// Where output is displayed
+	// Grabbing various DOM elements
 	let outputDisplay = document.getElementById('displayContainer');
+	let noFilesSelected = document.getElementById('noFilesSelected');
+	let toggleDisplay = document.getElementById('copyAll');
+	toggleDisplay.addEventListener('click', copyAndToggle);
 
 	// Renders selected file into str
 	function readFile() {
 		let reader = new FileReader();
-		reader.addEventListener('loadend', function () {
+		reader.addEventListener('loadend', () => {
 			parseFile(reader.result);
 		});
 		reader.readAsText(this.files[0]);
@@ -38,6 +41,10 @@ window.onload = () => {
 		// Making sure svgArr is an array
 		if (parsedArr instanceof Array) {
 
+			// Toggle displays
+			toggleDisplay.style.display = 'inline-block';
+			noFilesSelected.style.display = 'none';
+
 			// Path checking and formatting
 			parsedArr.map(path => {
 				path.split(/(?=M)/g).map(item => {
@@ -59,13 +66,11 @@ window.onload = () => {
 		outputDisplay.value += p.textContent + '\n';
 	}
 
-	// Copies the outputted paths
-	document.getElementById('copyAll').addEventListener('click', function () { // CHANGE THIS TO USE ARROW FUNCTION
-		alert('trying');
-		let copyText = document.getElementById('displayContainer');
-		copyText.select();
+	// Copies output and toggles elements display
+	function copyAndToggle() {
+		outputDisplay.select();
 		document.execCommand('Copy');
 		alert('All the paths are copied to your clipboard, enjoy :)');
-	});
+	};
 
 }; // End

@@ -3,10 +3,7 @@ $color2: rgba(230, 184, 156, 1);
 $color3: rgba(234, 210, 172, 1);
 $color4: rgba(156, 175, 183, 1);
 $color5: rgba(66, 129, 164, 1);
-
-@function percentOf($parentHeight, $childHeight) {
-	@return ($parentHeight/$childHeight * 100);
-}
+$footerHeight: 38px;
 
 * {
 	box-sizing: border-box;
@@ -18,7 +15,6 @@ body {
 	font-family: 'Avenir Next', 'Helvetica Neue', 'Helvetica', sans-serif;
 	font-size: 100%;
 	font-weight: normal;
-	overflow: hidden;
 }
 
 #main {
@@ -48,7 +44,7 @@ body {
 
 	#formContainer {
 		position: relative;
-		padding: 1.5em;
+		padding: 1.3em;
 		height: calc(672.36 / 70);
 
 		#inputContainer {
@@ -59,7 +55,11 @@ body {
 			}
 
 			label {
-				padding: .5em 1em;
+				display: inline-block;
+				width: 148px;
+				height: 38px;
+				padding-top: 0.5em;
+				padding-bottom: 0.5em;
 				background-color: $color5;
 				font-weight: 100;
 				color: white;
@@ -76,40 +76,52 @@ body {
 				}
 			}
 
-			button {
-				padding: .5em 1em;
-				background-color: $color5;
-				font-weight: 100;
-				color: white;
-				border-radius: 3px;
-				box-shadow: inset 0 0 10px 0 darken($color5, 10%);
+			#copyAll {
+				display: none;
 			}
 		};
+	};
 
-		#noFilesSelected {
-			display: none;
-		}
+	#noFilesSelected {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100px;
+		width: 400px;
+		margin: auto;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
 	};
 
 	#displayContainer {
 		background-color: $color4;
 		display: block;
+		border: none;
 		position: relative;
 		margin: auto;
 		line-height: 20px;
 		width: 96vw;
 		padding: 1em;
 		font-size: 0.8em;
-		height: calc(672.36px - 70px - 2vw);
+		height: calc(100% - 79px - 38px);
 		box-shadow: inset 0 0 20px 0 darken($color4, 30%);
 		overflow: auto;
 		white-space: pre;
 		resize: none;
+
+		&:focus {
+			outline: none;
+		}
 	};
 
 	#footer {
 		background-color: $color5;
 		color: white;
+		height: $footerHeight;
 		font-weight: 100;
 		display: flex;
 		justify-content: space-between;
